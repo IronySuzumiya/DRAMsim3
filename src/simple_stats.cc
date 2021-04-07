@@ -125,12 +125,12 @@ void SimpleStats::PrintFinalStats(bool cout) {
     if (config_.output_level >= 0) {
         // 2020.12.28 added by Fuping Niu
         if(cout) {
+            std::cout << "\"" << std::to_string(channel_id_) << "\":";
+            std::cout << j_data_;
+        } else {
             std::ofstream j_out(config_.json_stats_name, std::ofstream::app);
             j_out << "\"" << std::to_string(channel_id_) << "\":";
             j_out << j_data_;
-        } else {
-            std::cout << "\"" << std::to_string(channel_id_) << "\":";
-            std::cout << j_data_;
         }
     }
 
