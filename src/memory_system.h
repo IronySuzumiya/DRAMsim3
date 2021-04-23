@@ -27,6 +27,9 @@ class MemorySystem {
     void PrintStats() const;
     void ResetStats();
 
+    // 2021.4.23 added by nfp
+    int GetChannel(uint64_t hex_addr) const { return dram_system_->GetChannel(hex_addr); }
+
     bool WillAcceptTransaction(uint64_t hex_addr, bool is_write) const;
     bool AddTransaction(uint64_t hex_addr, bool is_write);
 
