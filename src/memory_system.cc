@@ -50,6 +50,10 @@ void MemorySystem::PrintStats() const { dram_system_->PrintStats(); }
 
 void MemorySystem::ResetStats() { dram_system_->ResetStats(); }
 
+int MemorySystem::GetChannel(uint64_t hex_addr) const { return dram_system_->GetChannel(hex_addr); }
+
+int MemorySystem::GetNumChannels() const { return BaseDRAMSystem::total_channels_; }
+
 MemorySystem* GetMemorySystem(const std::string &config_file, const std::string &output_dir,
                  std::function<void(uint64_t)> read_callback,
                  std::function<void(uint64_t)> write_callback) {

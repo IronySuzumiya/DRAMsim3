@@ -8,7 +8,7 @@ namespace dramsim3 {
 
 // This should be the interface class that deals with CPU
 class MemorySystem {
-   public:
+public:
     MemorySystem(const std::string &config_file, const std::string &output_dir,
                  std::function<void(uint64_t)> read_callback,
                  std::function<void(uint64_t)> write_callback);
@@ -22,6 +22,10 @@ class MemorySystem {
     int GetQueueSize() const;
     void PrintStats() const;
     void ResetStats();
+
+    // 2021.4.23 added by nfp
+    int GetChannel(uint64_t hex_addr) const;
+    int GetNumChannels() const;
 
     bool WillAcceptTransaction(uint64_t hex_addr, bool is_write) const;
     bool AddTransaction(uint64_t hex_addr, bool is_write);
